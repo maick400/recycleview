@@ -20,59 +20,44 @@ import com.maick400.recyclerviewcardviewapp.R;
 
 import java.util.List;
 
-public class detailsAdapter extends RecyclerView.Adapter<detailsAdapter.CelularViewHolder>  {
+public class detailsAdapter extends RecyclerView.Adapter<detailsAdapter.DetailsViewAdapte>  {
 
-    private Context Ctx;
-    private List<String> lstFotos;
-    public detailsAdapter(Context mCtx, List<String> cellu) {
-        this.lstFotos = cellu;
-        Ctx=mCtx;
+    private Context context;
+    private List<String> images;
+    public detailsAdapter(Context con, List<String> product) {
+        this.images = product;
+        context= con;
     }
     @Override
     public detailsAdapter.CelularViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-        LayoutInflater inflater = LayoutInflater.from(Ctx);
+        LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.ly_product_detail_item, null);
         return new detailsAdapter(view);
     }
     @Override
     public void onBindViewHolder(detailsAdapter.CelularViewHolder holder, int position) {
-        String cell = lstFotos.get(position);
-
-
-        Glide.with(Ctx)
-                .load(cell)
-                .into(holder.imageView);
-
-        bntCERRAR.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dxl.hide();
-            }
-        });
+        String prod = images.get(position);
+        
+        Glide.with(context).load(prod).into(holder.imageView);
         holder.imageView.getRootView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Glide.with(Ctx)
-                        .load(cell)
-                        .into(imgdial);
-                dxl.show();
+                Glide.with(context)
+                        .load(prod)
+                        .into(image);
+                gels.show();
             }
         });
     }
     @Override
-    public int getItemCount() { return lstFotos.size(); }
-    class CelularViewHolder extends RecyclerView.ViewHolder {
-
+    public int getItemCount() {
+        return images.size(); 
+    }
+    class DetailsViewAdapte extends RecyclerView.ViewHolder {
         ImageView imageView;
-
         public CelularViewHolder(View itemView) {
             super(itemView);
-
-            imageView = itemView.findViewById(R.id.imgFotos);
-
-
-
+            imageView = itemView.findViewById(R.id.images);
         }
     }
 
