@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="#333">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cviewPordcuctItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:background="#ccc"
+        >
+
+        <ImageView
+            android:id="@+id/imgThumbnail"
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:padding="4dp" />
+        <TextView
+            android:id="@+id/txtTitle"
+            android:textSize="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imgThumbnail"
+            android:text="Nombre"
+            android:padding="5dp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/txtDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtTitle"
+            android:padding="5dp"
+            android:textSize="7dp"
+            android:layout_toRightOf="@id/imgThumbnail"
+            android:text="desc"
+            />
+
+        <TextView
+            android:id="@+id/txtPrice"
+            android:layout_below="@id/txtDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:textSize="10dp"
+            android:textAlignment="textEnd"
+            android:padding="5dp"
+            android:layout_toRightOf="@id/imgThumbnail"
+            android:text="$0.00"
+            android:textStyle="bold"
+
+            />
+    </RelativeLayout>
+
+
+
+
+
+
+
+</LinearLayout>
